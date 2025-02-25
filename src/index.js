@@ -1,10 +1,12 @@
 import "./styles.css";
+import { inputEmpty, cityRegex } from "./validations";
 
 let location = {}
 let currentWeather
 let weeklyForecast
-const submit = document.querySelector('button');
 const form = document.querySelector('form');
+const inputField = form.querySelector('input[name="location"]');
+
 
 
 function getForecast (locationInput) {
@@ -17,6 +19,7 @@ function getForecast (locationInput) {
       weeklyForecast = data.days
       location.currentWeather = currentWeather;
       location.weeklyForecast = weeklyForecast;
+      location.address = data.resolvedAddress;
     })
     .catch(error => console.error("Error fetching data:", error));
 }
@@ -24,7 +27,14 @@ function getForecast (locationInput) {
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   const formData = new FormData(form);
-  const locationInput = formData.get("location") //gets value of input when form is submitted
+  const locationInput = (formData.get("location") || "").trim(); //gets value of input when form is submitted
+
+   // Validation: Ensure input is not empty,  Validation: Allow a city name
+   if (!inputEmpty(locationInput, inputField) || !cityRegex(locationInput)) {
+    return; // Stop execution
+  }
+
+
   getForecast(locationInput).then(() => {  // fetches location weather based on input value then logs data to console.
     console.log(`location data is: `, location);
   });
