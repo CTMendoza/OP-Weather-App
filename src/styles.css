@@ -23,6 +23,24 @@ input {
     border-radius: 5px;
 }
 
+#forecast-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+}
+
+#current-weather-container {
+   display: flex;
+   justify-content: center;
+}
+
+#current-weather {
+    height: 300px;
+    width: 250px;
+    background-color: rgba(0, 0, 0, 0.47);;
+    border-radius: 5px;
+}
+
 .lets-icons--search-duotone {
     display: inline-block;
     width: 24px;
