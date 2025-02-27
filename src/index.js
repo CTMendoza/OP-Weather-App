@@ -1,5 +1,6 @@
 import "./styles.css";
 import { inputEmpty, cityRegex } from "./validations";
+import { displayCurrentWeather } from "./displayWeather";
 
 let location = {}
 let currentWeather
@@ -37,6 +38,7 @@ form.addEventListener('submit', (event) => {
 
   getForecast(locationInput).then(() => {  // fetches location weather based on input value then logs data to console.
     console.log(`location data is: `, location);
+    displayCurrentWeather(location)
   });
   form.reset(); // resets form input values
 })
