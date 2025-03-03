@@ -31,5 +31,8 @@ function displayCurrentWeather (location) {
     temp.textContent = `${location.currentWeather.temp}`;
     precipitation.textContent = `Precipitation: ${location.currentWeather.precipprob}%`;
     humidity.textContent = `Humidity: ${location.currentWeather.humidity}%`;
+}
 
+function displayWeeklyForecast (location) {
+    location.weeklyForecast.forEach()
 }

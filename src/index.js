@@ -17,7 +17,7 @@ function getForecast (locationInput) {
       })
     .then(data => {
       currentWeather = data.currentConditions
-      weeklyForecast = data.days
+      weeklyForecast = data.days.slice(0, 7);
       location.currentWeather = currentWeather;
       location.weeklyForecast = weeklyForecast;
       location.address = data.resolvedAddress;
