@@ -1,6 +1,6 @@
 import "./styles.css";
 import { inputEmpty, cityRegex } from "./validations";
-import { displayCurrentWeather } from "./displayWeather";
+import { displayCurrentWeather, displayWeeklyForecast } from "./displayWeather";
 
 let location = {}
 let currentWeather
@@ -16,9 +16,9 @@ function getForecast (locationInput) {
         return response.json();
       })
     .then(data => {
-      currentWeather = data.currentConditions
-      weeklyForecast = data.days.slice(0, 7);
-      location.currentWeather = currentWeather;
+      // currentWeather = data.currentConditions
+      weeklyForecast = data.days.slice(0, 8);
+      // location.currentWeather = currentWeather;
       location.weeklyForecast = weeklyForecast;
       location.address = data.resolvedAddress;
     })
@@ -38,12 +38,11 @@ form.addEventListener('submit', (event) => {
 
   getForecast(locationInput).then(() => {  // fetches location weather based on input value then logs data to console.
     console.log(`location data is: `, location);
-    displayCurrentWeather(location)
+    // displayCurrentWeather(location);
+    displayWeeklyForecast(location);
   });
   form.reset(); // resets form input values
 })
 
-// getForecast().then(() => {
-//   console.log(`location data is: `, location);
-// });
+
 

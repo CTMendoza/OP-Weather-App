@@ -7,8 +7,9 @@ body {
 }
 
 nav {
+    display: block;
+    min-height: 50px;
     background-color: #696D7D;
-    height: 40px;
 }
 
 form {
@@ -27,7 +28,6 @@ input {
     visibility: hidden;
     display: flex;
     flex-direction: column;
-    margin-top: 60px;
 }
 
 #current-weather-section{
@@ -35,10 +35,19 @@ input {
    justify-content: center;
 }
 
-#current-weather-container {
+#weekly-forecast-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    gap: 8px;
+    margin-right: 8px;
+    margin-left: 8px;
+}
+
+#current-weather-container, .weekly-forecast-container {
     display: flex;
     flex-direction: column;
-    height: 300px;
     width: 250px;
     background-color: rgba(0, 0, 0, 0.47);;
     border-radius: 5px;
