@@ -1,5 +1,6 @@
-body {
-    height: 100vh;
+html, body {
+    overscroll-behavior: none;
+    height: auto;
     margin: 0;
     background-color: #C8D5B9;
     display: flex;
@@ -25,9 +26,17 @@ input {
 }
 
 #forecast-container {
-    visibility: hidden;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
+}
+
+#forecast-container.show {
+    max-height: 800px; /* A large enough value */
+    opacity: 1;
 }
 
 #current-weather-section{
