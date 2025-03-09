@@ -50,7 +50,7 @@ function displayWeeklyForecast (location) {
                 img.src = `/weather-icons/${day.icon}.png`;
                 const temp = document.createElement("p");
                 temp.className = "temp";
-                temp.textContent = `${day.temp}`;
+                temp.textContent = `${day.temp} ℉`;
                 const precipitation = document.createElement("p");
                 precipitation.className = "precipitation";
                 precipitation.textContent = `Precipitation: ${day.precipprob}%`;
@@ -76,7 +76,7 @@ function displayWeeklyForecast (location) {
                 img.src = `/weather-icons/${day.icon}.png`;
                 const temp = document.createElement("p");
                 temp.className = "temp";
-                temp.textContent = `${day.temp}`;
+                temp.textContent = `${day.temp} ℉`;
                 const precipitation = document.createElement("p");
                 precipitation.className = "precipitation";
                 precipitation.textContent = `Precipitation: ${day.precipprob}%`;
