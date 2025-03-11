@@ -23,11 +23,13 @@ input {
     width: 35%;
     border-radius: 5px;
     border: none;
+    box-shadow: 3px 3px 5px black;
 }
 
 button {
     border-radius: 5px;
     border: none;
+    box-shadow: 3px 3px 5px black;
 }
 
 #forecast-container {
@@ -73,6 +75,11 @@ button {
 
 #current-weather-container:hover, .weekly-forecast-container:hover {
     box-shadow: 4px 4px 5px rgba(142, 241, 74) ;
+}
+
+#header-container {
+    display: flex;
+    justify-content: center;
 }
 
 .weather-icon {

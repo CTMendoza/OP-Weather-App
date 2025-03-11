@@ -1,12 +1,15 @@
 import "./styles.css";
 import { inputEmpty, cityRegex } from "./validations";
 import { displayCurrentWeather, displayWeeklyForecast } from "./displayWeather";
+import { toggleTemperatureUnits} from "./toggleTemp";
+
 
 let location = {}
 let currentWeather
 let weeklyForecast
 const form = document.querySelector('form');
 const inputField = form.querySelector('input[name="location"]');
+const toggleSwitch = document.getElementById("toggleSwitch");
 
 
 
@@ -25,6 +28,10 @@ function getForecast (locationInput) {
     .catch(error => console.error("Error fetching data:", error));
 }
 
+// Event listener for switch toggle to switch between Fahrenheit and Celsius
+toggleSwitch.addEventListener("change", toggleTemperatureUnits);
+
+// Event listener to gather form data and calls function to display data based on form data sent to API
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   const formData = new FormData(form);

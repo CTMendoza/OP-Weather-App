@@ -1,4 +1,5 @@
 export { displayWeeklyForecast}
+import {convertToCelsius, isCelsius} from "./toggleTemp";
 
 /* 
  <div id="forecast-container">
@@ -50,7 +51,10 @@ function displayWeeklyForecast (location) {
                 img.src = `/weather-icons/${day.icon}.png`;
                 const temp = document.createElement("p");
                 temp.className = "temp";
-                temp.textContent = `${day.temp} ℉`;
+                temp.setAttribute("data-fahrenheit", day.temp); // Store Fahrenheit
+                temp.setAttribute("data-celsius", convertToCelsius(day.temp).toFixed(1)); // Store Celsius
+                // Display the correct unit based on toggle state
+                temp.textContent = isCelsius ? `${convertToCelsius(day.temp).toFixed(1)} ℃` : `${day.temp} ℉`;
                 const precipitation = document.createElement("p");
                 precipitation.className = "precipitation";
                 precipitation.textContent = `Precipitation: ${day.precipprob}%`;
@@ -76,7 +80,10 @@ function displayWeeklyForecast (location) {
                 img.src = `/weather-icons/${day.icon}.png`;
                 const temp = document.createElement("p");
                 temp.className = "temp";
-                temp.textContent = `${day.temp} ℉`;
+                temp.setAttribute("data-fahrenheit", day.temp); // Store Fahrenheit
+                temp.setAttribute("data-celsius", convertToCelsius(day.temp).toFixed(1)); // Store Celsius
+                // Display the correct unit based on toggle state
+                temp.textContent = isCelsius ? `${convertToCelsius(day.temp).toFixed(1)} ℃` : `${day.temp} ℉`;
                 const precipitation = document.createElement("p");
                 precipitation.className = "precipitation";
                 precipitation.textContent = `Precipitation: ${day.precipprob}%`;
