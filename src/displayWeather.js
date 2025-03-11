@@ -48,7 +48,7 @@ function displayWeeklyForecast (location) {
                 condition.textContent = day.conditions;
                 const img = document.createElement("img");
                 img.className = "weather-icon";
-                img.src = `/weather-icons/${day.icon}.png`;
+                img.src = `weather-icons/${day.icon}.png`;
                 const temp = document.createElement("p");
                 temp.className = "temp";
                 temp.setAttribute("data-fahrenheit", day.temp); // Store Fahrenheit
@@ -77,7 +77,7 @@ function displayWeeklyForecast (location) {
                 condition.textContent = day.conditions;
                 const img = document.createElement("img");
                 img.className = "weather-icon";
-                img.src = `/weather-icons/${day.icon}.png`;
+                img.src = `weather-icons/${day.icon}.png`;
                 const temp = document.createElement("p");
                 temp.className = "temp";
                 temp.setAttribute("data-fahrenheit", day.temp); // Store Fahrenheit
